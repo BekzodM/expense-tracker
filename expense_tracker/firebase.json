@@ -4,8 +4,8 @@
     "indexes": "firestore.indexes.json"
   },
   "hosting": {
+    "site": "expense-tracker-b",
     "public": "build/web",
-    "source": ".",
     "ignore": [
       "firebase.json",
       "**/.*",
