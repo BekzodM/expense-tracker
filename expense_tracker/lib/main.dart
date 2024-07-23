@@ -1,20 +1,20 @@
-import 'package:budget_app/login_page.dart';
-import 'package:budget_app/signup_page.dart';
-import 'package:firebase_core/firebase_core.dart';
+//import 'package:budget_app/login_page.dart';
+//import 'package:budget_app/signup_page.dart';
+//import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 //import 'package:budget_app/form_screen.dart';
 //import 'package:budget_app/expButton.dart';
-import 'package:budget_app/summary_view.dart';
+//import 'package:budget_app/summary_view.dart';
 
 void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
+  /* WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
       options: FirebaseOptions(
     apiKey: "",
     projectId: "budget-app-group-6",
     messagingSenderId: "",
     appId: "",
-  ));
+  )); */
   runApp(ExpenseTracker());
 }
 
@@ -50,7 +50,7 @@ class LandingPage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            ElevatedButton(
+            /* ElevatedButton(
               onPressed: () {
                 Navigator.push(context,
                     MaterialPageRoute(builder: (context) => LoginPage()));
@@ -60,9 +60,9 @@ class LandingPage extends StatelessWidget {
                 backgroundColor: MaterialStateProperty.all(Colors.teal),
               ),
               child: Text('Login'),
-            ),
+            ), */
             const SizedBox(height: 20),
-            ElevatedButton(
+            /* ElevatedButton(
               onPressed: () {
                 Navigator.push(context,
                     MaterialPageRoute(builder: (context) => SignupPage()));
@@ -72,7 +72,7 @@ class LandingPage extends StatelessWidget {
                 backgroundColor: MaterialStateProperty.all(Colors.teal),
               ),
               child: Text('Signup'),
-            ),
+            ), */
           ],
         ),
       ),
