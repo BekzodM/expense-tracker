@@ -1,9 +1,9 @@
-import 'package:budget_app/expButton.dart';
-import 'package:budget_app/get_cloud_data.dart';
-import 'package:budget_app/home_page.dart';
+import 'package:expense_tracker/expButton.dart';
+import 'package:expense_tracker/get_cloud_data.dart';
+import 'package:expense_tracker/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:budget_app/summary_view.dart';
+import 'package:expense_tracker/summary_view.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});

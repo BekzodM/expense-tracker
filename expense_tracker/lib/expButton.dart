@@ -1,9 +1,9 @@
-import 'package:budget_app/get_cloud_data.dart';
+import 'package:expense_tracker/get_cloud_data.dart';
 import 'package:flutter/material.dart';
-import 'package:budget_app/form_screen.dart';
+import 'package:expense_tracker/form_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:budget_app/main.dart';
-import 'package:budget_app/summary_view.dart';
+import 'package:expense_tracker/main.dart';
+import 'package:expense_tracker/summary_view.dart';
 
 void main() => runApp(AddExpenseButton());
 

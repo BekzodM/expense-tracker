@@ -1,21 +1,24 @@
-//import 'package:budget_app/login_page.dart';
-//import 'package:budget_app/signup_page.dart';
-//import 'package:firebase_core/firebase_core.dart';
+import 'package:expense_tracker/login_page.dart';
+import 'package:expense_tracker/signup_page.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-//import 'package:budget_app/form_screen.dart';
-//import 'package:budget_app/expButton.dart';
-//import 'package:budget_app/summary_view.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:flutter/services.dart' show rootBundle;
 
 void main() async {
-  /* WidgetsFlutterBinding.ensureInitialized();
+  WidgetsFlutterBinding.ensureInitialized();
+  await dotenv.load(fileName: 'assets/.env');
+
   await Firebase.initializeApp(
-      options: FirebaseOptions(
-    apiKey: "",
-    projectId: "budget-app-group-6",
-    messagingSenderId: "",
-    appId: "",
-  )); */
-  runApp(ExpenseTracker());
+    options: FirebaseOptions(
+      apiKey: dotenv.env['FIREBASE_API_KEY']!,
+      appId: dotenv.env['FIREBASE_APP_ID']!,
+      messagingSenderId: dotenv.env['FIREBASE_MESSAGING_SENDER_ID']!,
+      projectId: 'expense-tracker-bed74',
+      authDomain: 'expense-tracker-bed74.firebaseapp.com',
+      storageBucket: 'expense-tracker-bed74.appspot.com',
+  ));
+  runApp(const ExpenseTracker());
 }
 
 class ExpenseTracker extends StatelessWidget {
@@ -50,7 +53,7 @@ class LandingPage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            /* ElevatedButton(
+            ElevatedButton(
               onPressed: () {
                 Navigator.push(context,
                     MaterialPageRoute(builder: (context) => LoginPage()));
@@ -60,9 +63,9 @@ class LandingPage extends StatelessWidget {
                 backgroundColor: MaterialStateProperty.all(Colors.teal),
               ),
               child: Text('Login'),
-            ), */
+            ),
             const SizedBox(height: 20),
-            /* ElevatedButton(
+            ElevatedButton(
               onPressed: () {
                 Navigator.push(context,
                     MaterialPageRoute(builder: (context) => SignupPage()));
@@ -72,7 +75,7 @@ class LandingPage extends StatelessWidget {
                 backgroundColor: MaterialStateProperty.all(Colors.teal),
               ),
               child: Text('Signup'),
-            ), */
+            ),
           ],
         ),
       ),

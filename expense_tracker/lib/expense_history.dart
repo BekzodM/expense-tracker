@@ -1,10 +1,10 @@
-import 'package:budget_app/charts_page.dart';
-import 'package:budget_app/get_cloud_data.dart';
+import 'package:expense_tracker/charts_page.dart';
+import 'package:expense_tracker/get_cloud_data.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:budget_app/summary_view.dart';
-import 'package:budget_app/home_page.dart';
+import 'package:expense_tracker/summary_view.dart';
+import 'package:expense_tracker/home_page.dart';
 
 User? _user = FirebaseAuth.instance.currentUser;
 

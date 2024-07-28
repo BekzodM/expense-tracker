@@ -1,7 +1,7 @@
-import 'package:budget_app/get_cloud_data.dart';
+import 'package:expense_tracker/get_cloud_data.dart';
 import 'package:flutter/material.dart';
 import 'package:fl_chart/fl_chart.dart';
-import 'package:budget_app/indicator.dart';
+import 'package:expense_tracker/indicator.dart';
 import 'get_cloud_data.dart';
 
 final colorSet = [

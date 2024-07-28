@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:budget_app/summary_view.dart';
-import 'package:budget_app/get_cloud_data.dart';
+import 'package:expense_tracker/summary_view.dart';
+import 'package:expense_tracker/get_cloud_data.dart';
 
 const List<String> list = <String>[
   'Pick Category',
