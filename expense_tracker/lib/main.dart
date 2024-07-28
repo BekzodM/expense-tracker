@@ -2,18 +2,19 @@ import 'package:expense_tracker/login_page.dart';
 import 'package:expense_tracker/signup_page.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
-import 'package:flutter/services.dart' show rootBundle;
+//import 'package:flutter_dotenv/flutter_dotenv.dart';
+//import 'package:flutter/services.dart' show rootBundle;
+import 'config.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await dotenv.load(fileName: 'assets/.env');
+  //await dotenv.load(fileName: 'assets/.env');
 
   await Firebase.initializeApp(
-    options: FirebaseOptions(
-      apiKey: dotenv.env['FIREBASE_API_KEY']!,
-      appId: dotenv.env['FIREBASE_APP_ID']!,
-      messagingSenderId: dotenv.env['FIREBASE_MESSAGING_SENDER_ID']!,
+    options: const FirebaseOptions(
+      apiKey: Config.apiKey,
+      appId: Config.appId,
+      messagingSenderId: Config.messagingSenderId,
       projectId: 'expense-tracker-bed74',
       authDomain: 'expense-tracker-bed74.firebaseapp.com',
       storageBucket: 'expense-tracker-bed74.appspot.com',
