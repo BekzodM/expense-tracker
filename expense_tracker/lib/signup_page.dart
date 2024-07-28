@@ -91,16 +91,14 @@ class SignupPage extends StatelessWidget {
 
                     String userID = userCredential.user!.uid;
 
-
                     await FirebaseFirestore.instance.collection("Users").doc(userID).set({
                       'email': email,
                       'username': username,
-                      'password': password,
                     });
 
                     print('User registered and their data added to Firestore');
                   } catch (e) {
-                    print('Error registering and adding user to Firestore');
+                    print('Error registering and adding user to Firestore: $e');
                   }
                 },
                 style: ButtonStyle(

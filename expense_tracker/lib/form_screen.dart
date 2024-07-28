@@ -256,7 +256,7 @@ class _FormScreenState extends State<FormScreen> {
                           Navigator.pop(context);
                           _selectedDropdownValue = "Other";
                         } catch (e) {
-                          print("Expense not added");
+                          print("Expense not added: $e");
                         }
                       }
                       _selectedDropdownValue = "Other";
