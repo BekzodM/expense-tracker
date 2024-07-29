@@ -36,146 +36,67 @@ class Chart2State extends State<ChartsPage> {
 
   @override
   Widget build(BuildContext context) {
-    return AspectRatio(
-      aspectRatio: 1.3,
-      child: Row(
-        children: <Widget>[
-          const SizedBox(
-            height: 18,
-          ),
-          Expanded(
-            child: AspectRatio(
-              aspectRatio: 1,
-              child: PieChart(
-                PieChartData(
-                  // pieTouchData: PieTouchData(
-                  //   touchCallback: (FlTouchEvent event, pieTouchResponse) {
-                  //     setState(() {
-                  //       if (!event.isInterestedForInteractions ||
-                  //           pieTouchResponse == null ||
-                  //           pieTouchResponse.touchedSection == null) {
-                  //         touchedIndex = -1;
-                  //         return;
-                  //       }
-                  //       touchedIndex = pieTouchResponse
-                  //           .touchedSection!.touchedSectionIndex;
-                  //     });
-                  //   },
-                  // ),
-                  borderData: FlBorderData(
-                    show: false,
+    //final screenWidth = MediaQuery.of(context).size.width;
+    //final screenHeight = MediaQuery.of(context).size.height;
+
+    //final chartWidth = screenWidth * 0.3;
+    //final chartHeight = screenHeight * 0.3;
+    return Padding(
+      padding: const EdgeInsets.all(16.0),
+      child: AspectRatio(
+        aspectRatio: 1.0,
+        child: LayoutBuilder(
+          builder: (context, constraints) {
+            final maxWidth = 700.0;
+            final chartWidth = constraints.maxWidth < maxWidth
+                ? constraints.maxWidth
+                : maxWidth;
+            final chartHeight = chartWidth * 0.7;
+            final centerSpaceRadius = chartWidth * 0.15;
+            return Row(
+              children: <Widget>[
+                /* const SizedBox(
+                  height: 18,
+                ), */
+                Expanded(
+                  child: Container(
+                    width: chartWidth,
+                    height: chartHeight,
+                    child: PieChart(
+                      PieChartData(
+                        borderData: FlBorderData(
+                          show: false,
+                        ),
+                        sectionsSpace: 0,
+                        centerSpaceRadius: centerSpaceRadius,
+                        sections: showingSections(chartWidth),
+                      ),
+                    ),
                   ),
-                  sectionsSpace: 0,
-                  centerSpaceRadius: 100,
-                  sections: showingSections(),
                 ),
-              ),
-            ),
-          ),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.end,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: showingIndicators(),
-          ),
-          const SizedBox(
-            width: 20,
-          ),
-        ],
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: showingIndicators(),
+                ),
+                const SizedBox(
+                  width: 20,
+                ),
+              ],
+            );
+          },
+        ),
       ),
     );
   }
 
-/* class ChartsPage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return FutureBuilder(
-      // Replace with your Firestore data-fetching function
-      future: getExpenseByCategory(),
-      builder: (context, snapshot) {
-        if (snapshot.connectionState == ConnectionState.waiting) {
-          // Data is still loading, return a loading indicator or placeholder
-          return CircularProgressIndicator(); // Or any other loading widget
-        } else if (snapshot.hasError) {
-          // Handle the error
-          return Text('Error: ${snapshot.error}');
-        } else {
-          // Data has been successfully fetched, build the PieChart
-          return Chart2(); // Or build your PieChart here
-        }
-      },
-    );
-  }
-
-class Chart2 extends StatefulWidget {
-  @override
-  _Chart2State createState() => _Chart2State();
-}
-
-
-
-class _Chart2State extends State<Chart2> {
-  int touchedIndex = -1;
-  
-  @override
-  Widget build(BuildContext context) {
-    return AspectRatio(
-      aspectRatio: 1.3,
-      child: Row(
-        children: <Widget>[
-          const SizedBox(
-            height: 18,
-          ),
-          Expanded(
-            child: AspectRatio(
-              aspectRatio: 1,
-              child: PieChart(
-                PieChartData(
-                  pieTouchData: PieTouchData(
-                    touchCallback: (FlTouchEvent event, pieTouchResponse) {
-                      setState(() {
-                        if (!event.isInterestedForInteractions ||
-                            pieTouchResponse == null ||
-                            pieTouchResponse.touchedSection == null) {
-                          touchedIndex = -1;
-                          return;
-                        }
-                        touchedIndex = pieTouchResponse
-                            .touchedSection!.touchedSectionIndex;
-                      });
-                    },
-                  ),
-                  borderData: FlBorderData(
-                    show: false,
-                  ),
-                  sectionsSpace: 0,
-                  centerSpaceRadius: 100,
-                  sections: showingSections(),
-                ),
-              ),
-            ),
-          ),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.end,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: showingIndicators(),
-          ),
-          const SizedBox(
-            width: 20,
-          ),
-        ],
-      ),
-    );
-
-          
-} */
-
-  List<PieChartSectionData> showingSections() {
+  List<PieChartSectionData> showingSections(double chartWidth) {
     return List.generate(7, (i) {
       final isTouched = i == touchedIndex;
       final fontSize = isTouched ? 22.0 : 14.0;
       final radius = isTouched
-          ? MediaQuery.of(context).size.width * 0.06
-          : MediaQuery.of(context).size.width * 0.05;
+          ? chartWidth * 0.15
+          : chartWidth * 0.1;
       const shadows = [Shadow(color: Colors.black, blurRadius: 2)];
 
       return PieChartSectionData(
